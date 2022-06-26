@@ -1,10 +1,14 @@
-// import Jimp from 'jimp';
-// import { WebSocketServer } from 'ws';
+import { App } from './src/app';
+import { httpServer } from './src/http_server';
+import 'dotenv/config';
 
-import { httpServer } from './src/http_server/index.js';
-// import robot from 'robotjs';
+const RESERVE_HTTP_PORT = 3000;
 
-const HTTP_PORT = 3000;
+const HTTP_PORT = process.env.HTTP_PORT || RESERVE_HTTP_PORT;
 
 console.log(`Start static http server on the ${HTTP_PORT} port!`);
 httpServer.listen(HTTP_PORT);
+
+const app = new App();
+app.startConnection();
+// wss.on("close", () => {});
