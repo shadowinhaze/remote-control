@@ -23,7 +23,6 @@ export class App {
 
   private listenCommands(): void {
     this.stream.on('data', (data) => {
-      console.log(data);
       const [commandRaw, ...params] = <string[]>data.toString().split(' ');
 
       const [commandBase, commandType] = this.getPartsFromMask(commandRaw);
@@ -48,7 +47,6 @@ export class App {
     handler: (...args: string[]) => void | string | Promise<string>,
   ): void {
     if (this.usedMasks.has(mask)) return;
-    console.log(mask);
 
     const [commandBase, commandType] = this.getPartsFromMask(mask);
 
