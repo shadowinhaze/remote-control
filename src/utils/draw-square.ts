@@ -1,13 +1,12 @@
 import { setMouseDelay, mouseToggle } from 'robotjs';
 
 import { EventKey } from '../constants/event-keys';
+import { MouseDelayForDrawingFigure } from '../constants/params';
 
 import { moveMouse } from './move-mouse';
 
-const MOUSE_DELAY_FOR_DRAWING_SQUARE = 200;
-
 export const drawSquare = (length: string): void => {
-  setMouseDelay(MOUSE_DELAY_FOR_DRAWING_SQUARE);
+  setMouseDelay(MouseDelayForDrawingFigure.square);
   mouseToggle('down');
 
   moveMouse(EventKey.commandMouseTypeMoveUp, length);

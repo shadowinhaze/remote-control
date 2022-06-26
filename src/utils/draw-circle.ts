@@ -1,7 +1,5 @@
 import { getMousePos, moveMouse, mouseToggle, setMouseDelay } from 'robotjs';
 
-const ARC_PIECE = 0.01;
-
 export const drawCircle = (_radius: string): void => {
   const mousePos = getMousePos();
   const radius = Number(_radius);
@@ -9,8 +7,8 @@ export const drawCircle = (_radius: string): void => {
   moveMouse(mousePos.x + radius, mousePos.y);
 
   mouseToggle('down');
-
-  for (let i = 0; i <= Math.PI * 2; i += ARC_PIECE) {
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+  for (let i = 0; i <= Math.PI * 2; i += 0.01) {
     // Convert polar coordinates to cartesian
     const x = mousePos.x + radius * Math.cos(i);
     const y = mousePos.y + radius * Math.sin(i);

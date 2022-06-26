@@ -1,10 +1,9 @@
 import { App } from './src/app';
+import { ReservePort } from './src/constants/params';
 import { httpServer } from './src/http_server';
 import 'dotenv/config';
 
-const RESERVE_HTTP_PORT = 3000;
-
-const HTTP_PORT = process.env.HTTP_PORT || RESERVE_HTTP_PORT;
+const HTTP_PORT = process.env.HTTP_PORT || ReservePort.httpPort;
 
 console.log(`Start static http server on the ${HTTP_PORT} port!`);
 httpServer.listen(HTTP_PORT);

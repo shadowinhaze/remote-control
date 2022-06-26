@@ -5,17 +5,16 @@ import { Duplex } from 'stream';
 import { createWebSocketStream, WebSocketServer } from 'ws';
 
 import { EventKey } from '../constants/event-keys';
-
 import 'dotenv/config';
-import { COMMANDS } from './commands';
+import { ReservePort } from '../constants/params';
 
-const RESERVE_WSS_PORT = 8080;
+import { COMMANDS } from './commands';
 
 export class App {
   private emitter = new EventEmitter();
 
   private wss = new WebSocketServer({
-    port: Number(process.env.WSS_PORT) || RESERVE_WSS_PORT,
+    port: Number(process.env.WSS_PORT) || ReservePort.wssPort,
   });
 
   private stream: Duplex | undefined = undefined;
