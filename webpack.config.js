@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './index.ts',
   mode: 'production',
   module: {
     rules: [
@@ -20,4 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'node',
+  externals: {
+    robotjs: 'commonjs robotjs',
+  },
 };
