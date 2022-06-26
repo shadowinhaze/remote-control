@@ -98,5 +98,11 @@ export class App {
       this.parseCommands();
       this.listenCommands();
     });
+
+    process.on('SIGINT', () => {
+      process.stdout.write('Close websocket\n');
+      this.wss.close();
+      process.exit(0);
+    });
   }
 }
