@@ -20,7 +20,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   target: 'node',
-  externals: {
-    robotjs: 'commonjs robotjs',
-  },
+  externals: [
+    {
+      robotjs: 'commonjs robotjs',
+    },
+    'bufferutil',
+    'utf-8-validate',
+  ],
 };
